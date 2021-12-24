@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  dev:
+    container_name: bx_taxi_dev
+    image: bx-taxi-dev:1.0.0
+    build:
+      context: .
+      target: development
+      dockerfile: ./Dockerfile
+    command: npm run start:dev
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+    restart: unless-stopped
+  mongodb:
+    image : mongo:latest
+    container_name: mongodb
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - 27017:27017
+    restart: always
+  prod:
+    container_name: bx_taxi_prod
+    image: bx-taxi-prod:1.0.0
+    build:
+      context: .
+      target: production
+      dockerfile: ./Dockerfile
+    command: npm run start:prod
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+    restart: unless-stopped
+volumes:
+  mongodata:
+  node_modules:
