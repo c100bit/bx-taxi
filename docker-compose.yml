@@ -15,7 +15,7 @@ services:
       - node_modules:/usr/src/app/node_modules
     restart: unless-stopped
   mongodb:
-    image : mongo:latest
+    image : mongo:4.4
     container_name: mongodb
     volumes:
       - mongodata:/data/db
