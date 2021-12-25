@@ -24,11 +24,11 @@ export class BitrixService {
     ).toString();
   }
 
-  async addListElements(items: ReportItem[]) {
+  async addListElements(items: ReportItem[]): Promise<number[]> {
     const users = await Promise.all(
       items.map((item) => this.searchUser(item.client)),
     );
-    const result = await Promise.all(
+    return await Promise.all(
       items.map((item) =>
         this.addListElement(
           item,

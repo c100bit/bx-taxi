@@ -45,7 +45,6 @@ export class MailService {
       await this.client.connect();
       messages = await this.client.retrieveAll();
       messages.shift();
-
       const items = await Promise.all(
         messages.map((msg) => this.processMsg(msg)),
       ).then((result) => result.flat());

@@ -1,0 +1,17 @@
+export const reportItem: ReportItem = {
+  idx: '111',
+  callTime: new Date(1994, 11, 11, 1, 11, 0),
+  departure: 'departure',
+  client: 'Petrov P.P.',
+  destination: 'destination',
+  sum: 10.5,
+  stops: 'stop',
+  driverCall: 'driverCall',
+  licencePlate: 'licenPlate',
+  carCall: 'carCall',
+  startTime: new Date(1995, 11, 11, 1, 11, 0),
+  stopTime: new Date(1996, 11, 11, 1, 11, 0),
+  travelTime: 10,
+  distance: 10.5,
+  phone: 'phone',
+};
